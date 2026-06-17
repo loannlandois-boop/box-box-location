@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparateur de prix — Box Box</title>
+  <meta name="description" content="Comparez en temps réel les meilleurs prix de location automobile parmi tous nos loueurs partenaires. Transparence totale, du citadin au supercar.">
+  <meta property="og:title" content="Comparateur de prix — Box Box">
+  <meta property="og:description" content="Comparez les meilleurs prix de location en temps réel.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' font-weight='700' fill='%23C9A84C' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="logo"><span>B</span>ox Box</a>
+      <nav>
+        <ul class="nav__menu">
+          <li><a href="comparateur.html">Comparer les prix</a></li>
+          <li><a href="marketplace.html">Nos loueurs</a></li>
+          <li><a href="luxe.html">Collection luxe</a></li>
+          <li><a href="mutualisation.html">Flottes B2B</a></li>
+          <li><a href="financement.html">Financement</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="comparateur.html" class="btn btn--solid nav__cta">Réserver</a>
+      <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero hero--compact">
+      <div class="container hero__inner">
+        <span class="eyebrow reveal">Comparateur</span>
+        <h1 class="reveal" data-delay="1">Comparez les meilleurs prix en temps réel</h1>
+        <p class="hero__sub reveal" data-delay="2">Tous les loueurs côte à côte. Des tarifs transparents, sans surprise.</p>
+      </div>
+    </section>
+
+    <!-- ===== FORMULAIRE DE RECHERCHE ===== -->
+    <section class="section--tight">
+      <div class="container">
+        <form class="form-card reveal" data-search>
+          <div class="form-grid form-grid--search">
+            <div class="field">
+              <label for="lieu">Lieu de prise en charge</label>
+              <div class="input-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-5.7-7-11a7 7 0 0114 0c0 5.3-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                <input type="text" id="lieu" placeholder="Nice, Aéroport, Monaco…" value="Nice Côte d'Azur">
+              </div>
+            </div>
+            <div class="field">
+              <label for="date-start">Date de début</label>
+              <input type="date" id="date-start">
+            </div>
+            <div class="field">
+              <label for="date-end">Date de fin</label>
+              <input type="date" id="date-end">
+            </div>
+            <div class="field">
+              <label for="type">Type de véhicule</label>
+              <select id="type">
+                <option>Tout</option>
+                <option>Citadine</option>
+                <option>Berline</option>
+                <option>SUV</option>
+                <option>Cabriolet</option>
+                <option>Sport</option>
+                <option>Luxe</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn--solid btn--lg">Rechercher</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== RÉSULTATS ===== -->
+    <section class="section" id="results" style="padding-top:0">
+      <div class="container">
+        <p class="results-count">3 offres trouvées · triées par prix croissant</p>
+        <div class="cars">
+
+          <article class="car reveal">
+            <span class="car__cat">Loueur Cannes Premium</span>
+            <h3>Audi Q7</h3>
+            <div class="car__price">À partir de <b>490 €<small> /jour</small></b></div>
+            <span class="stars" style="margin-bottom:1rem">★★★★☆ <small>4.4</small></span>
+            <ul class="car__specs">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>7 passagers</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 22V4a1 1 0 011-1h8a1 1 0 011 1v18M3 22h11M3 10h10"/><path d="M14 8l3 3v7a2 2 0 104 0V9l-3-3"/></svg>Diesel</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 14l4-4M3 18a9 9 0 1118 0"/></svg>235 km/h</li>
+            </ul>
+            <a href="contact.html" class="btn btn--block">Réserver</a>
+          </article>
+
+          <article class="car reveal" data-delay="1">
+            <span class="car__cat">Loueur indépendant Nice</span>
+            <h3>BMW X5</h3>
+            <div class="car__price">À partir de <b>520 €<small> /jour</small></b></div>
+            <span class="stars" style="margin-bottom:1rem">★★★★☆ <small>4.2</small></span>
+            <ul class="car__specs">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>5 passagers</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 22V4a1 1 0 011-1h8a1 1 0 011 1v18M3 22h11M3 10h10"/><path d="M14 8l3 3v7a2 2 0 104 0V9l-3-3"/></svg>Diesel</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 14l4-4M3 18a9 9 0 1118 0"/></svg>235 km/h</li>
+            </ul>
+            <a href="contact.html" class="btn btn--block">Réserver</a>
+          </article>
+
+          <article class="car renter--featured reveal" data-delay="2" style="border-width:2px;border-color:var(--gold)">
+            <span class="badge" style="margin-bottom:1rem">Partenaire certifié</span>
+            <span class="car__cat">Luxury Rent</span>
+            <h3>Mercedes GLE 53 AMG</h3>
+            <div class="car__price">À partir de <b>740 €<small> /jour</small></b></div>
+            <span class="stars" style="margin-bottom:1rem">★★★★★ <small>4.9</small></span>
+            <ul class="car__specs">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>5 passagers</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 22V4a1 1 0 011-1h8a1 1 0 011 1v18M3 22h11M3 10h10"/><path d="M14 8l3 3v7a2 2 0 104 0V9l-3-3"/></svg>Essence</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 14l4-4M3 18a9 9 0 1118 0"/></svg>250 km/h</li>
+            </ul>
+            <a href="contact.html" class="btn btn--solid btn--block">Réserver</a>
+          </article>
+
+        </div>
+        <p class="form-note">Les prix affichés sont indicatifs. La disponibilité et les tarifs définitifs sont confirmés lors de la réservation.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="logo"><span>B</span>ox Box</a>
+          <p>La plateforme premium pour comparer, réserver et financer votre mobilité automobile.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="comparateur.html">Comparateur</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
+            <li><a href="luxe.html">Collection luxe</a></li>
+            <li><a href="financement.html">Financement</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Professionnels</h4>
+          <ul>
+            <li><a href="mutualisation.html">Flottes B2B</a></li>
+            <li><a href="marketplace.html">Devenir partenaire</a></li>
+            <li><a href="contact.html">Nous contacter</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Destinations</h4>
+          <ul>
+            <li><a href="luxe.html">Nice · Cannes</a></li>
+            <li><a href="luxe.html">Monaco</a></li>
+            <li><a href="luxe.html">Paris</a></li>
+            <li><a href="luxe.html">Courchevel</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:0493080280">04 93 08 02 80</a></li>
+            <li><a href="mailto:contact@boxbox.fr">contact@boxbox.fr</a></li>
+            <li><a href="contact.html">Nos adresses</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2025 Box Box. Tous droits réservés.</span>
+        <div class="footer__legal">
+          <a href="#">Mentions légales</a>
+          <a href="#">RGPD</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

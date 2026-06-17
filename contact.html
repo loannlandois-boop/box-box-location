@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Box Box</title>
+  <meta name="description" content="Contactez Box Box. Réservation, partenariat, mutualisation de flotte ou financement : nos équipes à Paris, en PACA et à Monaco vous répondent.">
+  <meta property="og:title" content="Contact — Box Box">
+  <meta property="og:description" content="Nos équipes à Paris, en PACA et à Monaco vous répondent.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' font-weight='700' fill='%23C9A84C' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="logo"><span>B</span>ox Box</a>
+      <nav>
+        <ul class="nav__menu">
+          <li><a href="comparateur.html">Comparer les prix</a></li>
+          <li><a href="marketplace.html">Nos loueurs</a></li>
+          <li><a href="luxe.html">Collection luxe</a></li>
+          <li><a href="mutualisation.html">Flottes B2B</a></li>
+          <li><a href="financement.html">Financement</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="comparateur.html" class="btn btn--solid nav__cta">Réserver</a>
+      <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero hero--compact">
+      <div class="container hero__inner">
+        <span class="eyebrow reveal">Contact</span>
+        <h1 class="reveal" data-delay="1">Contactez-nous</h1>
+        <p class="hero__sub reveal" data-delay="2">Une question, une réservation, un projet ? Nos équipes vous répondent.</p>
+      </div>
+    </section>
+    <hr class="gold-line">
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- INFOS -->
+          <div class="contact-info reveal">
+            <h3>Nos adresses</h3>
+            <dl>
+              <dt>Paris</dt>
+              <dd>42 Avenue Montaigne, 75008 Paris<br><span class="muted" style="font-size:0.82rem">Partenaire Luxury Rent</span></dd>
+              <dt>PACA</dt>
+              <dd>230 Route des Dolines, 06560 Valbonne</dd>
+              <dt>Monaco</dt>
+              <dd>La Villa, 19 Galerie Charles III, Monaco</dd>
+              <dt>Téléphone</dt>
+              <dd><a href="tel:0493080280">04 93 08 02 80</a></dd>
+              <dt>WhatsApp</dt>
+              <dd><a href="https://wa.me/33677580525">06 77 58 05 25</a></dd>
+              <dt>Email</dt>
+              <dd><a href="mailto:contact@boxbox.fr">contact@boxbox.fr</a></dd>
+            </dl>
+          </div>
+
+          <!-- FORMULAIRE -->
+          <form class="form-card reveal" data-delay="1" data-form>
+            <div class="form-grid">
+              <div class="field">
+                <label for="nom">Nom complet</label>
+                <input type="text" id="nom" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+              </div>
+              <div class="field">
+                <label for="tel">Téléphone</label>
+                <input type="tel" id="tel">
+              </div>
+              <div class="field">
+                <label for="objet">Objet</label>
+                <select id="objet">
+                  <option>Réservation</option>
+                  <option>Partenariat loueur</option>
+                  <option>Mutualisation flotte</option>
+                  <option>Financement</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+            </div>
+            <div class="field" style="margin-top:20px">
+              <label for="message">Message</label>
+              <textarea id="message" required></textarea>
+            </div>
+            <label class="checkbox" style="margin-bottom:24px">
+              <input type="checkbox" required>
+              <span>J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la politique de confidentialité (RGPD).</span>
+            </label>
+            <button type="submit" class="btn btn--solid btn--lg btn--block">Envoyer le message</button>
+            <div class="form-msg">Merci ! Votre message a bien été envoyé. Nous vous répondons dans les plus brefs délais.</div>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="logo"><span>B</span>ox Box</a>
+          <p>La plateforme premium pour comparer, réserver et financer votre mobilité automobile.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="comparateur.html">Comparateur</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
+            <li><a href="luxe.html">Collection luxe</a></li>
+            <li><a href="financement.html">Financement</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Professionnels</h4>
+          <ul>
+            <li><a href="mutualisation.html">Flottes B2B</a></li>
+            <li><a href="marketplace.html">Devenir partenaire</a></li>
+            <li><a href="contact.html">Nous contacter</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Destinations</h4>
+          <ul>
+            <li><a href="luxe.html">Nice · Cannes</a></li>
+            <li><a href="luxe.html">Monaco</a></li>
+            <li><a href="luxe.html">Paris</a></li>
+            <li><a href="luxe.html">Courchevel</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:0493080280">04 93 08 02 80</a></li>
+            <li><a href="mailto:contact@boxbox.fr">contact@boxbox.fr</a></li>
+            <li><a href="contact.html">Nos adresses</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2025 Box Box. Tous droits réservés.</span>
+        <div class="footer__legal">
+          <a href="#">Mentions légales</a>
+          <a href="#">RGPD</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

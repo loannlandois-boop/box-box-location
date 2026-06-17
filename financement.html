@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financement auto — LOA, LLD &amp; crédit | Box Box</title>
+  <meta name="description" content="Financez votre prochaine voiture : LOA, LLD ou crédit classique. Simulez votre mensualité en temps réel avec Box Box.">
+  <meta property="og:title" content="Financement auto — LOA, LLD & crédit | Box Box">
+  <meta property="og:description" content="LOA, LLD, crédit classique — la solution adaptée à votre situation.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' font-weight='700' fill='%23C9A84C' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="logo"><span>B</span>ox Box</a>
+      <nav>
+        <ul class="nav__menu">
+          <li><a href="comparateur.html">Comparer les prix</a></li>
+          <li><a href="marketplace.html">Nos loueurs</a></li>
+          <li><a href="luxe.html">Collection luxe</a></li>
+          <li><a href="mutualisation.html">Flottes B2B</a></li>
+          <li><a href="financement.html">Financement</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="comparateur.html" class="btn btn--solid nav__cta">Réserver</a>
+      <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero hero--compact">
+      <div class="container hero__inner">
+        <span class="eyebrow reveal">Financement</span>
+        <h1 class="reveal" data-delay="1">Financez votre prochaine voiture</h1>
+        <p class="hero__sub reveal" data-delay="2">LOA, LLD, crédit classique — nous trouvons la solution adaptée à votre situation.</p>
+      </div>
+    </section>
+    <hr class="gold-line">
+
+    <!-- ===== PRODUITS ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid--3">
+          <article class="card reveal">
+            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="5"/><path d="M11.5 11.5L21 21M17 17l2-2M14 14l2-2"/></svg></div>
+            <h3>Location avec Option d'Achat</h3>
+            <p style="margin-bottom:1.2rem">La LOA pour rouler dans un véhicule récent tout en gardant la possibilité de l'acquérir.</p>
+            <ul class="car__specs" style="border-top:1px solid var(--border);margin-bottom:1.6rem">
+              <li>Mensualités réduites</li>
+              <li>Option d'achat à terme</li>
+              <li>Entretien inclus possible</li>
+            </ul>
+            <a href="#simulateur" class="btn btn--block">Simuler ma LOA</a>
+          </article>
+
+          <article class="card reveal" data-delay="1">
+            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div>
+            <h3>Location Longue Durée</h3>
+            <p style="margin-bottom:1.2rem">La LLD pour rouler sans contrainte, avec un budget parfaitement maîtrisé.</p>
+            <ul class="car__specs" style="border-top:1px solid var(--border);margin-bottom:1.6rem">
+              <li>Véhicule neuf tous les 2-4 ans</li>
+              <li>Charges maîtrisées</li>
+              <li>Sans immobilisation de capital</li>
+            </ul>
+            <a href="#simulateur" class="btn btn--block">Simuler ma LLD</a>
+          </article>
+
+          <article class="card reveal" data-delay="2">
+            <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M15 9.5a3.5 3.5 0 00-3-1.5c-2 0-3.5 1.8-3.5 4s1.5 4 3.5 4a3.5 3.5 0 003-1.5M7.5 11.5h5M7.5 13.5h5"/></svg></div>
+            <h3>Crédit Auto Classique</h3>
+            <p style="margin-bottom:1.2rem">Le crédit auto pour devenir immédiatement propriétaire de votre véhicule.</p>
+            <ul class="car__specs" style="border-top:1px solid var(--border);margin-bottom:1.6rem">
+              <li>Propriété immédiate</li>
+              <li>Durée flexible</li>
+              <li>Remboursement anticipé possible</li>
+            </ul>
+            <a href="#simulateur" class="btn btn--block">Calculer mon crédit</a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <hr class="gold-line">
+
+    <!-- ===== SIMULATEUR ===== -->
+    <section class="section" id="simulateur">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Simulateur</span>
+          <h2>Estimez votre mensualité</h2>
+        </div>
+        <div class="sim reveal" data-sim>
+          <div class="sim__controls">
+            <div class="slider">
+              <div class="slider__top">
+                <label>Montant du véhicule</label>
+                <span class="slider__val" id="out-amount">45 000 €</span>
+              </div>
+              <input type="range" id="sim-amount" min="5000" max="500000" step="1000" value="45000">
+            </div>
+            <div class="slider">
+              <div class="slider__top">
+                <label>Durée</label>
+                <span class="slider__val" id="out-months">48 mois</span>
+              </div>
+              <input type="range" id="sim-months" min="12" max="84" step="6" value="48">
+            </div>
+            <div class="slider">
+              <div class="slider__top">
+                <label>Apport</label>
+                <span class="slider__val" id="out-deposit">10 % · 4 500 €</span>
+              </div>
+              <input type="range" id="sim-deposit" min="0" max="50" step="1" value="10">
+            </div>
+          </div>
+          <div class="sim__result">
+            <span class="eyebrow" style="margin-bottom:0.4rem">Mensualité estimée</span>
+            <div class="sim__amount"><span id="sim-result">—</span> €<small>/mois</small></div>
+            <p class="muted" style="margin:0.6rem 0 0;font-size:0.85rem">Coût total estimé : <span id="sim-total" class="gold">—</span></p>
+          </div>
+        </div>
+        <p class="form-note">Simulation indicative. TAEG affiché à titre informatif (4,90 %). Sous réserve d'acceptation.</p>
+      </div>
+    </section>
+
+    <!-- ===== MENTION LÉGALE ===== -->
+    <section class="section--tight">
+      <div class="container">
+        <hr class="gold-line" style="margin-bottom:32px">
+        <p class="muted center" style="max-width:760px;margin:0 auto;font-size:0.85rem">Box Box agit en qualité d'apporteur d'affaires auprès d'établissements de crédit partenaires. Activité soumise à enregistrement ORIAS. Prêt soumis à acceptation de votre dossier. Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="logo"><span>B</span>ox Box</a>
+          <p>La plateforme premium pour comparer, réserver et financer votre mobilité automobile.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="comparateur.html">Comparateur</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
+            <li><a href="luxe.html">Collection luxe</a></li>
+            <li><a href="financement.html">Financement</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Professionnels</h4>
+          <ul>
+            <li><a href="mutualisation.html">Flottes B2B</a></li>
+            <li><a href="marketplace.html">Devenir partenaire</a></li>
+            <li><a href="contact.html">Nous contacter</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Destinations</h4>
+          <ul>
+            <li><a href="luxe.html">Nice · Cannes</a></li>
+            <li><a href="luxe.html">Monaco</a></li>
+            <li><a href="luxe.html">Paris</a></li>
+            <li><a href="luxe.html">Courchevel</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:0493080280">04 93 08 02 80</a></li>
+            <li><a href="mailto:contact@boxbox.fr">contact@boxbox.fr</a></li>
+            <li><a href="contact.html">Nos adresses</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2025 Box Box. Tous droits réservés.</span>
+        <div class="footer__legal">
+          <a href="#">Mentions légales</a>
+          <a href="#">RGPD</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
