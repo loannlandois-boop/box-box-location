@@ -15,6 +15,16 @@
   function initPreloader() {
     var pl = document.getElementById('preloader');
     if (!pl) return;
+
+    // Affiché une seule fois par session : ignoré sur les pages suivantes
+    var firstVisit = true;
+    try { firstVisit = !sessionStorage.getItem('bb_seen'); } catch (e) {}
+    if (!firstVisit) {
+      pl.classList.add('is-skipped');
+      return;
+    }
+    try { sessionStorage.setItem('bb_seen', '1'); } catch (e) {}
+
     document.body.classList.add('is-loading');
 
     var start = Date.now();
@@ -91,6 +101,31 @@
     }, { threshold: 0.4 });
 
     nums.forEach(function (n) { io.observe(n); });
+  }
+
+  /* -------- 0d. Transitions entre pages -------- */
+  function initPageTransitions() {
+    var reduce = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+
+    document.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      var a = e.target.closest('a');
+      if (!a) return;
+      var href = a.getAttribute('href');
+      if (!href || a.target === '_blank') return;
+      if (href.charAt(0) === '#' ||
+          href.indexOf('tel:') === 0 ||
+          href.indexOf('mailto:') === 0 ||
+          href.indexOf('http') === 0 ||
+          href.indexOf('//') === 0) return;
+      if (!/\.html(\?|#|$)/.test(href)) return;
+
+      e.preventDefault();
+      document.body.classList.add('page-leaving');
+      setTimeout(function () { window.location.href = href; }, 340);
+    });
   }
 
   /* -------- 1. Navigation mobile -------- */
@@ -252,6 +287,7 @@
   /* -------- Init -------- */
   document.addEventListener('DOMContentLoaded', function () {
     initPreloader();
+    initPageTransitions();
     initNavScroll();
     initCounters();
     initNav();

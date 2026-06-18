@@ -1046,3 +1046,33 @@ body.is-loading { overflow: hidden; }
 .reveal--right.is-visible { transform: none; }
 
 .car, .card, .renter { will-change: transform; }
+
+/* Préloader : ignoré après la 1re visite de la session */
+.preloader.is-skipped { display: none; }
+
+/* Transitions entre pages */
+main { animation: page-in .7s var(--ease) both; }
+@keyframes page-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+body.page-leaving { opacity: 0; transition: opacity .35s var(--ease); }
+
+/* Survol raffiné des cartes véhicule */
+.car { position: relative; overflow: hidden; }
+.car::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  height: 2px; width: 0;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transition: width .45s var(--ease);
+}
+.car:hover::after { width: 100%; }
+.car:hover { transform: translateY(-6px); border-color: rgba(201,168,76,0.6); }
+.car h3 { transition: color .35s var(--ease); }
+.car:hover h3 { color: var(--gold-light); }
+.car__cat { transition: border-color .35s var(--ease), color .35s var(--ease); }
+.car:hover .car__cat { border-color: var(--gold); }
+
+@media (prefers-reduced-motion: reduce) {
+  main { animation: none; }
+  body.page-leaving { opacity: 1; transition: none; }
+}
