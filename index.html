@@ -18,8 +18,10 @@
 
   <!-- ===== PORTE D'ENTRÉE ===== -->
   <div class="gate" id="gate">
-    <div class="gate__door gate__door--left"></div>
-    <div class="gate__door gate__door--right"></div>
+    <video class="gate__media" id="gateVideo" autoplay muted playsinline preload="auto" poster="assets/ferrari.png">
+      <source src="assets/ferrari-entry.mp4" type="video/mp4">
+    </video>
+    <div class="gate__scrim"></div>
     <div class="gate__content">
       <span class="gate__eyebrow">La collection automobile d'exception</span>
       <div class="gate__logo"><span>B</span>ox Box</div>
@@ -99,7 +101,7 @@
 
       <p class="gate__tag">Comparez, réservez et financez les plus belles automobiles de France.</p>
       <button class="btn btn--solid btn--lg gate__btn" id="gateEnter">Entrer &nbsp;→</button>
-      <span class="gate__hint">Cliquez pour franchir les portes</span>
+      <span class="gate__hint">Cliquez pour entrer dans la Ferrari</span>
     </div>
   </div>
 

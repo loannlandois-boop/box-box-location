@@ -129,7 +129,23 @@
       setTimeout(function () { gate.classList.add('is-removed'); }, 1500);
     }
 
-    if (btn) btn.addEventListener('click', open);
+    if (btn) btn.addEventListener('click', function (e) { e.stopPropagation(); open(); });
+
+    // La vidéo d'entrée : entrer automatiquement à la fin, ou au clic sur la scène
+    var vid = document.getElementById('gateVideo');
+    if (vid) {
+      vid.addEventListener('ended', function () {
+        setTimeout(open, 400);
+      });
+      // relance la lecture si l'autoplay est bloqué
+      var p = vid.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+    gate.addEventListener('click', function (e) {
+      if (e.target === btn) return;
+      open();
+    });
+
     // touche Entrée / Espace pour entrer aussi
     document.addEventListener('keydown', function (e) {
       if (!gate.classList.contains('is-open') &&
