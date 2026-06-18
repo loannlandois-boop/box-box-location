@@ -11,6 +11,88 @@
 (function () {
   'use strict';
 
+  /* -------- 0. Préloader (écran de chargement animé) -------- */
+  function initPreloader() {
+    var pl = document.getElementById('preloader');
+    if (!pl) return;
+    document.body.classList.add('is-loading');
+
+    var start = Date.now();
+    var MIN_MS = 1700; // durée minimale d'affichage pour laisser jouer l'animation
+
+    function hide() {
+      var wait = Math.max(0, MIN_MS - (Date.now() - start));
+      setTimeout(function () {
+        pl.classList.add('is-done');
+        document.body.classList.remove('is-loading');
+      }, wait);
+    }
+
+    if (document.readyState === 'complete') {
+      hide();
+    } else {
+      window.addEventListener('load', hide);
+    }
+
+    // Filet de sécurité : ne jamais bloquer la page
+    setTimeout(function () {
+      pl.classList.add('is-done');
+      document.body.classList.remove('is-loading');
+    }, 5000);
+  }
+
+  /* -------- 0b. Nav : état au scroll -------- */
+  function initNavScroll() {
+    var nav = document.querySelector('.nav');
+    if (!nav) return;
+    var onScroll = function () {
+      nav.classList.toggle('nav--scrolled', window.scrollY > 20);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* -------- 0c. Compteurs animés -------- */
+  function initCounters() {
+    var nums = document.querySelectorAll('.stat__num');
+    if (!nums.length || !('IntersectionObserver' in window)) return;
+
+    var reduce = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+
+    function animate(el) {
+      var text = el.textContent.trim();
+      var m = text.match(/^([\d\s ]+)/);
+      if (!m) return;
+      var target = parseInt(m[1].replace(/[\s ]/g, ''), 10);
+      if (isNaN(target)) return;
+      var suffix = text.slice(m[1].length);
+
+      var dur = 1500, t0 = null;
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min(1, (ts - t0) / dur);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased).toLocaleString('fr-FR') + suffix;
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = target.toLocaleString('fr-FR') + suffix;
+      }
+      requestAnimationFrame(step);
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    nums.forEach(function (n) { io.observe(n); });
+  }
+
   /* -------- 1. Navigation mobile -------- */
   function initNav() {
     const nav = document.querySelector('.nav');
@@ -169,6 +251,9 @@
 
   /* -------- Init -------- */
   document.addEventListener('DOMContentLoaded', function () {
+    initPreloader();
+    initNavScroll();
+    initCounters();
     initNav();
     initReveal();
     initFilters();

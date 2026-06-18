@@ -868,6 +868,11 @@ select {
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
+  .preloader__logo,
+  .preloader__line span,
+  .preloader__tag { animation: none; opacity: 1; }
+  .preloader__line span { width: 100%; }
+  .hero::before { animation: none; }
 }
 
 /* ---------- Utilities ---------- */
@@ -951,3 +956,93 @@ select {
   .btn-row .btn { width: 100%; }
   .footer__top { grid-template-columns: 1fr 1fr; }
 }
+
+/* ============================================================
+   PRÉLOADER & MOUVEMENT
+   ============================================================ */
+body.is-loading { overflow: hidden; }
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  transition: opacity .9s var(--ease), visibility .9s var(--ease);
+}
+.preloader.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.preloader__inner { text-align: center; padding: 0 24px; }
+.preloader__logo {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--text);
+  opacity: 0;
+  animation: pl-fade-up 1s var(--ease) forwards .15s;
+}
+.preloader__logo span { color: var(--gold); }
+.preloader__line {
+  width: min(260px, 60vw);
+  height: 1px;
+  margin: 22px auto 18px;
+  background: var(--border);
+  overflow: hidden;
+}
+.preloader__line span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  animation: pl-line 1.6s var(--ease) forwards .35s;
+}
+.preloader__tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0;
+  animation: pl-fade 1s var(--ease) forwards .85s;
+}
+@keyframes pl-fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes pl-fade   { to { opacity: 1; } }
+@keyframes pl-line   { to { width: 100%; } }
+
+/* Nav : état renforcé au scroll */
+.nav { transition: background .4s var(--ease), box-shadow .4s var(--ease); }
+.nav--scrolled { background: rgba(10,10,10,0.97); box-shadow: 0 1px 0 rgba(201,168,76,0.14); }
+
+/* Halo doré flottant dans le hero */
+.hero { isolation: isolate; }
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -32%;
+  left: 50%;
+  width: 90vw;
+  max-width: 1100px;
+  aspect-ratio: 1 / 1;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(201,168,76,0.12), transparent 60%);
+  animation: hero-float 16s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+@keyframes hero-float {
+  0%, 100% { transform: translateX(-50%) translateY(0) scale(1); opacity: .85; }
+  50%      { transform: translateX(-50%) translateY(28px) scale(1.07); opacity: 1; }
+}
+
+/* Variantes de reveal (mouvement latéral) */
+.reveal--left  { transform: translateX(-32px); }
+.reveal--right { transform: translateX(32px); }
+.reveal--left.is-visible,
+.reveal--right.is-visible { transform: none; }
+
+.car, .card, .renter { will-change: transform; }
