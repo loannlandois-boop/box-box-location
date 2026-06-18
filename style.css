@@ -1076,3 +1076,167 @@ body.page-leaving { opacity: 0; transition: opacity .35s var(--ease); }
   main { animation: none; }
   body.page-leaving { opacity: 1; transition: none; }
 }
+
+/* ============================================================
+   PORTE D'ENTRÉE (gate cinématographique — index)
+   ============================================================ */
+.gate { position: fixed; inset: 0; z-index: 10000; overflow: hidden; }
+.gate.is-removed { display: none; }
+
+.gate__door {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 50.5%;
+  background: linear-gradient(180deg, #101010 0%, #070707 100%);
+  transition: transform 1.35s cubic-bezier(.76, 0, .24, 1);
+  z-index: 2;
+}
+.gate__door--left  { left: 0;  border-right: 1px solid rgba(201,168,76,.45); }
+.gate__door--right { right: 0; border-left:  1px solid rgba(201,168,76,.45); }
+.gate.is-open .gate__door--left  { transform: translateX(-100%); }
+.gate.is-open .gate__door--right { transform: translateX(100%); }
+
+.gate__content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24px;
+  transition: opacity .55s var(--ease), transform .55s var(--ease);
+}
+.gate__content::before {
+  content: '';
+  position: absolute;
+  width: min(900px, 90vw); aspect-ratio: 1/1;
+  background: radial-gradient(circle, rgba(201,168,76,.12), transparent 62%);
+  z-index: -1;
+  animation: hero-float 14s ease-in-out infinite;
+}
+.gate.is-open .gate__content { opacity: 0; transform: scale(1.05); pointer-events: none; }
+
+.gate__eyebrow {
+  font-size: .7rem; letter-spacing: .34em; text-transform: uppercase;
+  color: var(--gold); opacity: 0;
+  animation: pl-fade-up .9s var(--ease) forwards .25s;
+}
+.gate__logo {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 9vw, 5.4rem);
+  font-weight: 600; letter-spacing: .12em; line-height: 1;
+  margin: .35rem 0 .2rem; color: var(--text); opacity: 0;
+  animation: pl-fade-up 1s var(--ease) forwards .4s;
+}
+.gate__logo span { color: var(--gold); }
+
+.gate__car {
+  width: min(820px, 94vw);
+  margin: 1rem auto 1.4rem;
+  opacity: 0;
+  animation: car-enter 1.4s var(--ease) forwards .55s;
+}
+.gate__car svg { width: 100%; height: auto; display: block; animation: car-bob 5s ease-in-out infinite 2s; }
+
+.gate__tag {
+  color: var(--text-muted); font-size: 1rem; max-width: 460px;
+  opacity: 0; animation: pl-fade-up 1s var(--ease) forwards .8s;
+}
+.gate__btn {
+  margin-top: 1.8rem; opacity: 0;
+  animation: pl-fade-up 1s var(--ease) forwards 1s, btn-pulse 2.6s ease-in-out infinite 2s;
+}
+.gate__hint {
+  margin-top: 1rem; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+  color: #6a6a6a; opacity: 0; animation: pl-fade-up 1s var(--ease) forwards 1.2s;
+}
+
+/* éléments animés du véhicule */
+.car-headlight { animation: glow 2.8s ease-in-out infinite; transform-origin: center; }
+.car-speed { animation: speed 2.6s ease-in-out infinite; }
+.car-gleam { animation: gleam 5.5s ease-in-out infinite 2.4s; }
+
+@keyframes car-enter { from { opacity: 0; transform: translateX(-70px); } to { opacity: 1; transform: none; } }
+@keyframes car-bob   { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes glow      { 0%,100% { opacity: .45; } 50% { opacity: 1; } }
+@keyframes speed     { 0% { opacity: 0; transform: translateX(24px); } 35% { opacity: .6; } 70% { opacity: 0; transform: translateX(-34px); } 100% { opacity: 0; } }
+@keyframes gleam     { 0% { transform: translateX(-160px) skewX(-18deg); opacity: 0; } 18% { opacity: .5; } 42% { transform: translateX(920px) skewX(-18deg); opacity: 0; } 100% { opacity: 0; } }
+@keyframes btn-pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(201,168,76,.5); } 50% { box-shadow: 0 0 0 12px rgba(201,168,76,0); } }
+
+/* ============================================================
+   BARRE DE PROGRESSION & RETOUR EN HAUT
+   ============================================================ */
+.scroll-progress {
+  position: fixed; top: 0; left: 0;
+  height: 2px; width: 0;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  z-index: 200;
+  transition: width .12s linear;
+}
+.to-top {
+  position: fixed; right: 22px; bottom: 22px;
+  width: 48px; height: 48px;
+  display: grid; place-items: center;
+  border: 1px solid var(--gold); border-radius: 50%;
+  background: rgba(10,10,10,.65); color: var(--gold);
+  backdrop-filter: blur(8px);
+  opacity: 0; transform: translateY(14px); pointer-events: none;
+  transition: opacity .4s var(--ease), transform .4s var(--ease), background .3s var(--ease), color .3s var(--ease);
+  z-index: 120;
+}
+.to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { background: var(--gold); color: #0A0A0A; }
+.to-top svg { width: 18px; height: 18px; }
+
+/* ============================================================
+   BANDEAU DE MARQUES DÉFILANT
+   ============================================================ */
+.marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 24px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.marquee__track {
+  display: flex; gap: 56px; width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee span {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  letter-spacing: .1em; color: var(--text-muted);
+  white-space: nowrap; transition: color .3s var(--ease);
+}
+.marquee span:hover { color: var(--gold); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ============================================================
+   SURVOL ENRICHI — toutes les cartes
+   ============================================================ */
+.card, .renter { position: relative; overflow: hidden; }
+.card::after, .renter::after {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  height: 2px; width: 0;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transition: width .45s var(--ease);
+}
+.card:hover::after, .renter:hover::after { width: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gate__content::before,
+  .gate__car, .gate__car svg,
+  .car-headlight, .car-speed, .car-gleam,
+  .gate__btn, .marquee__track,
+  .gate__eyebrow, .gate__logo, .gate__tag, .gate__hint { animation: none !important; opacity: 1 !important; }
+  .gate__door { transition: none; }
+}
+
+@media (max-width: 768px) {
+  .to-top { right: 16px; bottom: 16px; width: 44px; height: 44px; }
+}

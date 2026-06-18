@@ -103,6 +103,73 @@
     nums.forEach(function (n) { io.observe(n); });
   }
 
+  /* -------- 0e. Porte d'entrée (gate) -------- */
+  function initGate() {
+    var gate = document.getElementById('gate');
+    if (!gate) return;
+
+    var seen = false;
+    try { seen = !!sessionStorage.getItem('bb_entered'); } catch (e) {}
+
+    if (seen) {
+      gate.classList.add('is-removed');
+      return;
+    }
+
+    document.body.classList.add('is-loading');
+    var btn = document.getElementById('gateEnter');
+
+    function open() {
+      try {
+        sessionStorage.setItem('bb_entered', '1');
+        sessionStorage.setItem('bb_seen', '1'); // évite le préloader sur les pages suivantes
+      } catch (e) {}
+      gate.classList.add('is-open');
+      document.body.classList.remove('is-loading');
+      setTimeout(function () { gate.classList.add('is-removed'); }, 1500);
+    }
+
+    if (btn) btn.addEventListener('click', open);
+    // touche Entrée / Espace pour entrer aussi
+    document.addEventListener('keydown', function (e) {
+      if (!gate.classList.contains('is-open') &&
+          (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); open(); }
+    });
+  }
+
+  /* -------- 0f. Barre de progression de lecture -------- */
+  function initScrollProgress() {
+    var bar = document.createElement('div');
+    bar.className = 'scroll-progress';
+    document.body.appendChild(bar);
+    var update = function () {
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      var p = max > 0 ? (h.scrollTop || window.scrollY) / max : 0;
+      bar.style.width = (p * 100) + '%';
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+  }
+
+  /* -------- 0g. Bouton retour en haut -------- */
+  function initBackToTop() {
+    var btn = document.createElement('button');
+    btn.className = 'to-top';
+    btn.setAttribute('aria-label', 'Retour en haut');
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
+    document.body.appendChild(btn);
+    var toggle = function () {
+      btn.classList.toggle('is-visible', (window.scrollY || 0) > 600);
+    };
+    toggle();
+    window.addEventListener('scroll', toggle, { passive: true });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   /* -------- 0d. Transitions entre pages -------- */
   function initPageTransitions() {
     var reduce = window.matchMedia &&
@@ -286,8 +353,11 @@
 
   /* -------- Init -------- */
   document.addEventListener('DOMContentLoaded', function () {
+    initGate();
     initPreloader();
     initPageTransitions();
+    initScrollProgress();
+    initBackToTop();
     initNavScroll();
     initCounters();
     initNav();

@@ -16,12 +16,90 @@
 </head>
 <body>
 
-  <!-- Préloader -->
-  <div class="preloader" id="preloader" aria-hidden="true">
-    <div class="preloader__inner">
-      <div class="preloader__logo"><span>B</span>ox Box</div>
-      <div class="preloader__line"><span></span></div>
-      <div class="preloader__tag">Luxury Automobile</div>
+  <!-- ===== PORTE D'ENTRÉE ===== -->
+  <div class="gate" id="gate">
+    <div class="gate__door gate__door--left"></div>
+    <div class="gate__door gate__door--right"></div>
+    <div class="gate__content">
+      <span class="gate__eyebrow">La collection automobile d'exception</span>
+      <div class="gate__logo"><span>B</span>ox Box</div>
+
+      <div class="gate__car">
+        <svg viewBox="0 0 920 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Supercar de prestige">
+          <defs>
+            <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#1c1c1c"/>
+              <stop offset="1" stop-color="#0c0c0c"/>
+            </linearGradient>
+            <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#C9A84C"/>
+              <stop offset="1" stop-color="#E8C97A"/>
+            </linearGradient>
+            <radialGradient id="lightGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#E8C97A" stop-opacity="0.95"/>
+              <stop offset="1" stop-color="#E8C97A" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4"/></filter>
+            <clipPath id="bodyClip">
+              <path d="M58 258 C70 210 150 184 252 168 C300 160 330 150 366 116 C408 86 482 78 548 90 C624 104 694 114 776 128 C824 136 882 144 886 196 L888 236 C888 252 880 258 864 258 Z"/>
+            </clipPath>
+          </defs>
+
+          <!-- lignes de vitesse -->
+          <g class="car-speed" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round">
+            <line x1="0" y1="150" x2="92" y2="150"/>
+            <line x1="22" y1="186" x2="134" y2="186"/>
+            <line x1="0" y1="222" x2="74" y2="222"/>
+          </g>
+
+          <!-- reflet au sol -->
+          <ellipse cx="470" cy="314" rx="392" ry="14" fill="url(#goldGrad)" opacity="0.12" filter="url(#soft)"/>
+
+          <!-- carrosserie -->
+          <path class="car-body" fill="url(#bodyGrad)" stroke="url(#goldGrad)" stroke-width="2.5"
+            d="M58 258 C70 210 150 184 252 168 C300 160 330 150 366 116 C408 86 482 78 548 90 C624 104 694 114 776 128 C824 136 882 144 886 196 L888 236 C888 252 880 258 864 258 Z"/>
+
+          <!-- reflet balayant (clippé sur la carrosserie) -->
+          <g clip-path="url(#bodyClip)">
+            <rect class="car-gleam" x="0" y="60" width="120" height="220" fill="#FFFFFF" opacity="0.07"/>
+          </g>
+
+          <!-- vitrage -->
+          <path class="car-glass" fill="#0A0A0A" stroke="url(#goldGrad)" stroke-width="2"
+            d="M384 116 C414 96 478 88 540 98 C572 103 598 110 618 120 L470 130 C432 132 404 128 384 116 Z"/>
+
+          <!-- lignes de style -->
+          <path stroke="url(#goldGrad)" stroke-width="1.6" opacity="0.8" d="M398 132 C470 150 560 156 700 150"/>
+          <path stroke="url(#goldGrad)" stroke-width="1.6" opacity="0.8" d="M628 150 L662 174 L612 178"/>
+          <path stroke="url(#goldGrad)" stroke-width="1.4" opacity="0.55" d="M120 232 C180 206 240 192 300 186"/>
+
+          <!-- phare avant + halo -->
+          <path d="M70 226 L116 214 L120 230 L74 240 Z" fill="url(#goldGrad)"/>
+          <circle class="car-headlight" cx="96" cy="226" r="28" fill="url(#lightGlow)"/>
+          <!-- feu arrière -->
+          <path d="M872 196 L888 198 L886 214 L870 212 Z" fill="url(#goldGrad)" opacity="0.9"/>
+
+          <!-- passages de roue -->
+          <circle cx="248" cy="252" r="76" fill="#0A0A0A"/>
+          <circle cx="742" cy="252" r="76" fill="#0A0A0A"/>
+
+          <!-- roues -->
+          <g>
+            <circle cx="248" cy="256" r="60" fill="#0d0d0d" stroke="url(#goldGrad)" stroke-width="3"/>
+            <circle cx="248" cy="256" r="30" fill="none" stroke="url(#goldGrad)" stroke-width="2"/>
+            <circle cx="248" cy="256" r="8"  fill="url(#goldGrad)"/>
+          </g>
+          <g>
+            <circle cx="742" cy="256" r="60" fill="#0d0d0d" stroke="url(#goldGrad)" stroke-width="3"/>
+            <circle cx="742" cy="256" r="30" fill="none" stroke="url(#goldGrad)" stroke-width="2"/>
+            <circle cx="742" cy="256" r="8"  fill="url(#goldGrad)"/>
+          </g>
+        </svg>
+      </div>
+
+      <p class="gate__tag">Comparez, réservez et financez les plus belles automobiles de France.</p>
+      <button class="btn btn--solid btn--lg gate__btn" id="gateEnter">Entrer &nbsp;→</button>
+      <span class="gate__hint">Cliquez pour franchir les portes</span>
     </div>
   </div>
 
@@ -71,6 +149,14 @@
         </div>
       </div>
     </section>
+
+    <!-- ===== BANDEAU DE MARQUES ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Ferrari</span><span>·</span><span>Lamborghini</span><span>·</span><span>Rolls-Royce</span><span>·</span><span>Bentley</span><span>·</span><span>Porsche</span><span>·</span><span>Aston Martin</span><span>·</span><span>Mercedes-AMG</span><span>·</span><span>Range Rover</span><span>·</span>
+        <span>Ferrari</span><span>·</span><span>Lamborghini</span><span>·</span><span>Rolls-Royce</span><span>·</span><span>Bentley</span><span>·</span><span>Porsche</span><span>·</span><span>Aston Martin</span><span>·</span><span>Mercedes-AMG</span><span>·</span><span>Range Rover</span><span>·</span>
+      </div>
+    </div>
 
     <!-- ===== COMMENT ÇA MARCHE ===== -->
     <section class="section">
