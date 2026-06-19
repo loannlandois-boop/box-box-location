@@ -1506,3 +1506,82 @@ body::after {
 /* Bandeau marques : gris clair */
 .marquee span { color: #cfcfcf; }
 .marquee span:hover { color: #fff; }
+
+/* ============================================================
+   PAGE COLLECTION — style catalogue Cercle Turismo
+   ============================================================ */
+.collection {
+  position: relative;
+  padding: clamp(54px, 8vw, 110px) 0;
+  border-top: 1px solid var(--border);
+}
+.collection__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+.collection__no {
+  position: absolute;
+  top: clamp(24px, 4vw, 48px);
+  right: 0;
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(5rem, 16vw, 13rem);
+  line-height: .8;
+  color: rgba(255,255,255,.04);
+  pointer-events: none;
+  z-index: 0;
+}
+.collection__label {
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  font-size: .66rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: .8rem;
+}
+.collection__title {
+  font-family: var(--serif);
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: .01em;
+  line-height: .95;
+  font-size: clamp(2.1rem, 5.5vw, 4rem);
+  margin: 0;
+}
+.collection__count {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 1rem;
+  white-space: nowrap;
+}
+.fleet-list {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 2;
+  column-gap: 72px;
+}
+.fleet-list li {
+  font-style: italic;
+  font-size: 1.06rem;
+  color: #d6d6d6;
+  padding: .62rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  break-inside: avoid;
+  transition: color .3s var(--ease), padding-left .3s var(--ease);
+}
+.fleet-list li:hover { color: #fff; padding-left: 10px; }
+.fleet-list li small { font-style: normal; color: var(--text-muted); letter-spacing: .04em; }
+
+@media (max-width: 680px) {
+  .fleet-list { columns: 1; }
+  .collection__no { font-size: clamp(4rem, 22vw, 7rem); opacity: .7; }
+}
