@@ -9,8 +9,8 @@
   --bg:            #0A0A0A;
   --bg-2:          #111111;
   --card:          #161616;
-  --gold:          #E10600;   /* Rouge Ferrari — accent principal de la marque */
-  --gold-light:    #FF2E24;   /* Rouge clair (survols, dégradés) */
+  --gold:          #FFFFFF;   /* Rouge Ferrari — accent principal de la marque */
+  --gold-light:    #EDEDED;   /* Rouge clair (survols, dégradés) */
   --text:          #F0EDE8;
   --text-muted:    #8A8A8A;
   --border:        #2A2A2A;
@@ -261,7 +261,7 @@ p { margin: 0 0 1rem; }
   min-height: calc(100vh - var(--nav-h));
   padding: clamp(60px, 10vw, 120px) 0;
   background:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(225,6,0,0.08), transparent 60%),
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,255,255,0.08), transparent 60%),
     var(--bg);
   overflow: hidden;
 }
@@ -364,7 +364,7 @@ p { margin: 0 0 1rem; }
   transition: border-color .4s var(--ease), transform .4s var(--ease);
 }
 .card:hover {
-  border-color: rgba(225,6,0,0.55);
+  border-color: rgba(255,255,255,0.55);
   transform: translateY(-3px);
 }
 .card__icon {
@@ -536,7 +536,7 @@ select {
   border-radius: var(--radius);
   color: var(--gold-light);
   font-size: 0.9rem;
-  background: rgba(225,6,0,0.06);
+  background: rgba(255,255,255,0.06);
 }
 .form-msg.is-visible { display: block; }
 
@@ -582,10 +582,10 @@ select {
   padding: 34px 32px;
   transition: border-color .4s var(--ease), transform .4s var(--ease);
 }
-.renter:hover { border-color: rgba(225,6,0,0.5); transform: translateY(-3px); }
+.renter:hover { border-color: rgba(255,255,255,0.5); transform: translateY(-3px); }
 .renter--featured {
   border: 2px solid var(--gold);
-  background: linear-gradient(180deg, rgba(225,6,0,0.05), transparent 40%), var(--card);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), transparent 40%), var(--card);
 }
 .renter__head {
   display: flex;
@@ -624,7 +624,7 @@ select {
   flex-direction: column;
   transition: border-color .4s var(--ease), transform .4s var(--ease);
 }
-.car:hover { border-color: rgba(225,6,0,0.55); transform: translateY(-3px); }
+.car:hover { border-color: rgba(255,255,255,0.55); transform: translateY(-3px); }
 .car__cat {
   align-self: flex-start;
   font-size: 0.62rem;
@@ -803,7 +803,7 @@ select {
 /* ---------- CTA band ---------- */
 .cta-band {
   background:
-    radial-gradient(ellipse 70% 120% at 50% 0%, rgba(225,6,0,0.08), transparent 60%),
+    radial-gradient(ellipse 70% 120% at 50% 0%, rgba(255,255,255,0.08), transparent 60%),
     var(--bg-2);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -1016,7 +1016,7 @@ body.is-loading { overflow: hidden; }
 
 /* Nav : état renforcé au scroll */
 .nav { transition: background .4s var(--ease), box-shadow .4s var(--ease); }
-.nav--scrolled { background: rgba(10,10,10,0.97); box-shadow: 0 1px 0 rgba(225,6,0,0.14); }
+.nav--scrolled { background: rgba(10,10,10,0.97); box-shadow: 0 1px 0 rgba(255,255,255,0.14); }
 
 /* Halo doré flottant dans le hero */
 .hero { isolation: isolate; }
@@ -1029,7 +1029,7 @@ body.is-loading { overflow: hidden; }
   max-width: 1100px;
   aspect-ratio: 1 / 1;
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(225,6,0,0.12), transparent 60%);
+  background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 60%);
   animation: hero-float 16s ease-in-out infinite;
   pointer-events: none;
   z-index: -1;
@@ -1066,7 +1066,7 @@ body.page-leaving { opacity: 0; transition: opacity .35s var(--ease); }
   transition: width .45s var(--ease);
 }
 .car:hover::after { width: 100%; }
-.car:hover { transform: translateY(-6px); border-color: rgba(225,6,0,0.6); }
+.car:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.6); }
 .car h3 { transition: color .35s var(--ease); }
 .car:hover h3 { color: var(--gold-light); }
 .car__cat { transition: border-color .35s var(--ease), color .35s var(--ease); }
@@ -1091,8 +1091,8 @@ body.page-leaving { opacity: 0; transition: opacity .35s var(--ease); }
   transition: transform 1.35s cubic-bezier(.76, 0, .24, 1);
   z-index: 2;
 }
-.gate__door--left  { left: 0;  border-right: 1px solid rgba(225,6,0,.45); }
-.gate__door--right { right: 0; border-left:  1px solid rgba(225,6,0,.45); }
+.gate__door--left  { left: 0;  border-right: 1px solid rgba(255,255,255,.45); }
+.gate__door--right { right: 0; border-left:  1px solid rgba(255,255,255,.45); }
 .gate.is-open .gate__door--left  { transform: translateX(-100%); }
 .gate.is-open .gate__door--right { transform: translateX(100%); }
 
@@ -1112,7 +1112,7 @@ body.page-leaving { opacity: 0; transition: opacity .35s var(--ease); }
   content: '';
   position: absolute;
   width: min(900px, 90vw); aspect-ratio: 1/1;
-  background: radial-gradient(circle, rgba(225,6,0,.12), transparent 62%);
+  background: radial-gradient(circle, rgba(255,255,255,.12), transparent 62%);
   z-index: -1;
   animation: hero-float 14s ease-in-out infinite;
 }
@@ -1163,7 +1163,7 @@ body.page-leaving { opacity: 0; transition: opacity .35s var(--ease); }
 @keyframes glow      { 0%,100% { opacity: .45; } 50% { opacity: 1; } }
 @keyframes speed     { 0% { opacity: 0; transform: translateX(24px); } 35% { opacity: .6; } 70% { opacity: 0; transform: translateX(-34px); } 100% { opacity: 0; } }
 @keyframes gleam     { 0% { transform: translateX(-160px) skewX(-18deg); opacity: 0; } 18% { opacity: .5; } 42% { transform: translateX(920px) skewX(-18deg); opacity: 0; } 100% { opacity: 0; } }
-@keyframes btn-pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(225,6,0,.5); } 50% { box-shadow: 0 0 0 12px rgba(225,6,0,0); } }
+@keyframes btn-pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(255,255,255,.5); } 50% { box-shadow: 0 0 0 12px rgba(255,255,255,0); } }
 
 /* ============================================================
    BARRE DE PROGRESSION & RETOUR EN HAUT
@@ -1293,18 +1293,18 @@ body::after {
   position: fixed; inset: 0;
   background:
     radial-gradient(ellipse at center, transparent 48%, rgba(0,0,0,.55) 100%),
-    radial-gradient(ellipse 120% 80% at 72% 6%, rgba(225,6,0,.22), transparent 50%),
+    radial-gradient(ellipse 120% 80% at 72% 6%, rgba(255,255,255,.22), transparent 50%),
     linear-gradient(180deg, rgba(7,7,7,.48) 0%, rgba(7,7,7,.64) 45%, rgba(7,7,7,.8) 100%);
   z-index: -1;
 }
 
 /* Surfaces translucides — la voiture transparaît subtilement */
 .hero { background: transparent; }
-.hero::before { background: radial-gradient(circle, rgba(225,6,0,.16), transparent 60%); }
+.hero::before { background: radial-gradient(circle, rgba(255,255,255,.16), transparent 60%); }
 .hero h1 { text-shadow: 0 4px 40px rgba(0,0,0,.55); }
 .hero__sub { text-shadow: 0 2px 24px rgba(0,0,0,.6); }
 
-.cta-band { background: linear-gradient(180deg, rgba(20,8,8,.45), rgba(7,7,7,.6)); }
+.cta-band { background: linear-gradient(180deg, rgba(17,17,17,.45), rgba(7,7,7,.6)); }
 .stat { background: rgba(11,11,11,.5); backdrop-filter: blur(3px); }
 .founder { background: rgba(15,13,13,.6); backdrop-filter: blur(7px); }
 .card, .car, .renter { background: rgba(17,16,16,.82); backdrop-filter: blur(7px); }
@@ -1320,11 +1320,11 @@ body::after {
 .btn--solid { color: #fff; }
 .btn:hover, .btn--ghost:hover { color: #fff; }
 .gold-line { opacity: .7; }
-.badge { background: rgba(225,6,0,.08); }
+.badge { background: rgba(255,255,255,.08); }
 .car__price b { color: #fff; }
 
 /* Liseré rouge subtil en bas de la nav */
-.nav { border-bottom-color: rgba(225,6,0,.22); }
+.nav { border-bottom-color: rgba(255,255,255,.22); }
 
 /* ============================================================
    FINITION PRESTIGE — typographie, formes, espacements
@@ -1467,3 +1467,42 @@ h4 { font-weight: 700; letter-spacing: .04em; }
 /* Cartes véhicule : nom imposant */
 .car h3 { font-size: 1.45rem; letter-spacing: .02em; }
 .car__price b { font-size: 1.85rem; font-weight: 700; }
+
+/* ============================================================
+   MODE NOIR & BLANC — comme le logo SF CLUB PARIS
+   ============================================================ */
+/* Ferrari de fond en niveaux de gris */
+body::before { filter: blur(5px) brightness(.6) grayscale(1); }
+body::after {
+  background:
+    radial-gradient(ellipse at center, transparent 46%, rgba(0,0,0,.6) 100%),
+    linear-gradient(180deg, rgba(7,7,7,.5) 0%, rgba(7,7,7,.66) 45%, rgba(7,7,7,.82) 100%);
+}
+.hero::before { background: radial-gradient(circle, rgba(255,255,255,.05), transparent 60%); }
+
+/* Vidéo d'entrée en niveaux de gris */
+.gate__media { filter: grayscale(1); }
+.gate.is-open .gate__media { filter: grayscale(1) brightness(.35); }
+
+/* Logo : « .PARIS » en gris (comme le logo officiel) */
+.logo span,
+.gate__logo span,
+.preloader__logo span { color: #8f8f8f; font-weight: 600; }
+
+/* Boutons strictement N&B : plein = blanc / texte noir */
+.btn { border-color: #fff; color: #fff; }
+.btn--solid { background: #fff; border-color: #fff; color: #0A0A0A; }
+.btn--solid:hover { background: #d6d6d6; border-color: #d6d6d6; color: #0A0A0A; }
+.btn:hover { background: #fff; color: #0A0A0A; }
+.btn--ghost { border-color: var(--border); color: #fff; }
+.btn--ghost:hover { background: transparent; border-color: #fff; color: #fff; }
+
+/* Catégorie véhicule en italique — esprit catalogue */
+.car__cat { font-style: italic; text-transform: none; letter-spacing: .01em; color: #b9b9b9; }
+
+/* Étoiles / accents : blanc */
+.stars { color: #fff; }
+
+/* Bandeau marques : gris clair */
+.marquee span { color: #cfcfcf; }
+.marquee span:hover { color: #fff; }
