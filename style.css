@@ -1,5 +1,5 @@
 /* ============================================================
-   Box Box — Feuille de style globale
+   SF CLUB PARIS — Feuille de style globale
    Plateforme de location automobile premium
    ============================================================ */
 
@@ -17,7 +17,7 @@
   --white:         #FFFFFF;
 
   /* Typo */
-  --serif:  'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --serif:  'Archivo', 'Inter', -apple-system, sans-serif;  /* Grotesque condensé — identité club */
   --sans:   'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* Mesures */
@@ -1384,3 +1384,86 @@ h3 { font-size: clamp(1.35rem, 2vw, 1.65rem); }
 /* Listes de specs / dl un peu plus aérées */
 .renter dl { gap: .7rem 1.4rem; }
 .car__specs { gap: .65rem; }
+
+/* ============================================================
+   DA SF CLUB PARIS — grotesque, capitales, club privé
+   ============================================================ */
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+h1 { font-size: clamp(2.7rem, 7vw, 6rem); line-height: .95; font-weight: 900; }
+h2 { font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1; font-weight: 800; }
+h3 { font-size: clamp(1.15rem, 1.8vw, 1.4rem); font-weight: 700; letter-spacing: .03em; }
+h4 { font-weight: 700; letter-spacing: .04em; }
+
+/* Logo SF CLUB.PARIS */
+.logo {
+  font-family: var(--serif);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: 1.18rem;
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  gap: .04em;
+}
+.logo span { color: var(--gold); font-weight: 600; letter-spacing: .12em; }
+
+/* Wordmarks préloader / gate : grand, dramatique */
+.gate__logo, .preloader__logo {
+  font-family: var(--serif);
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: .14em;
+  font-size: clamp(2.4rem, 8vw, 5rem);
+}
+.gate__logo span, .preloader__logo span { color: var(--gold); font-weight: 600; }
+.founder__logo { font-family: var(--serif); text-transform: uppercase; font-weight: 800; letter-spacing: .06em; }
+
+/* Nav : capitales fines, esprit club */
+.nav__menu a { text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; font-weight: 500; }
+
+/* Hero éditorial : aligné à gauche, immense, marges généreuses */
+.hero { align-items: flex-end; min-height: calc(100vh - var(--nav-h)); }
+.hero .hero__inner { max-width: 980px; }
+.hero h1 { font-size: clamp(3rem, 9vw, 7rem); letter-spacing: 0; margin-bottom: .25em; }
+.hero .eyebrow { color: var(--gold); letter-spacing: .42em; }
+.hero__sub { font-weight: 300; max-width: 540px; }
+
+/* Étiquettes éditoriales fines */
+.eyebrow, .filter-group__label, .footer__col h4, .field label,
+.slider__top label, .contact-info dt, .concept__item h4 {
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: .32em;
+  font-size: .68rem;
+}
+
+/* Boutons couture, arêtes nettes */
+.btn { font-weight: 600; letter-spacing: .2em; border-radius: 0; padding: 1.1em 2.4em; font-size: .7rem; }
+.btn--lg { padding: 1.3em 3.2em; font-size: .74rem; }
+.btn--solid { color: #fff; }
+.btn:hover { color: #fff; }
+.btn--solid:hover { color: #fff; }
+
+/* Cartes & blocs : arêtes nettes */
+.card, .car, .renter, .form-card, .sim, .founder, .stats, .stat,
+.badge, .chip, .input, .field input, .field select, .field textarea { border-radius: 0; }
+
+/* Filet rouge marqué sous le hero */
+.gold-line { opacity: .5; }
+.gold-line--short { width: 56px; height: 2px; background: var(--gold); opacity: 1; }
+
+/* Marquee : capitales club */
+.marquee span { font-family: var(--serif); text-transform: uppercase; font-weight: 700; letter-spacing: .12em; }
+
+/* Badge "club" rectangulaire */
+.badge { border-radius: 0; letter-spacing: .24em; font-weight: 600; }
+
+/* Cartes véhicule : nom imposant */
+.car h3 { font-size: 1.45rem; letter-spacing: .02em; }
+.car__price b { font-size: 1.85rem; font-weight: 700; }
