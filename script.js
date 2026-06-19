@@ -211,6 +211,75 @@
     });
   }
 
+  /* -------- 0h. Album catalogue interactif -------- */
+  function initCatalogue() {
+    var el = document.getElementById('album');
+    if (!el) return;
+    var count = parseInt(el.dataset.count, 10);
+    var base = el.dataset.base, ext = el.dataset.ext || 'jpg';
+    var img = document.getElementById('albumImg');
+    var cur = document.getElementById('albumCur');
+    var thumbs = document.getElementById('albumThumbs');
+    var lb = document.getElementById('albumLightbox');
+    var lbImg = document.getElementById('albumLightboxImg');
+    var i = 0;
+
+    function pad(n) { return String(n + 1).padStart(2, '0'); }
+    function src(n) { return base + pad(n) + '.' + ext; }
+
+    for (var k = 0; k < count; k++) {
+      (function (k) {
+        var t = document.createElement('img');
+        t.className = 'album__thumb';
+        t.loading = 'lazy';
+        t.src = src(k);
+        t.alt = 'Page ' + (k + 1);
+        t.addEventListener('click', function () { go(k); });
+        thumbs.appendChild(t);
+      })(k);
+    }
+
+    function go(n) {
+      i = (n + count) % count;
+      img.classList.add('is-fading');
+      setTimeout(function () {
+        img.src = src(i);
+        img.classList.remove('is-fading');
+      }, 180);
+      cur.textContent = pad(i);
+      var ts = thumbs.children;
+      for (var j = 0; j < ts.length; j++) ts[j].classList.toggle('is-active', j === i);
+      if (ts[i]) ts[i].scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+    }
+
+    function openLb() { lbImg.src = src(i); lb.classList.add('is-open'); }
+    function closeLb() { lb.classList.remove('is-open'); }
+
+    document.getElementById('albumPrev').addEventListener('click', function () { go(i - 1); });
+    document.getElementById('albumNext').addEventListener('click', function () { go(i + 1); });
+    document.getElementById('albumViewer').addEventListener('click', openLb);
+    document.getElementById('albumZoom').addEventListener('click', openLb);
+    document.getElementById('albumClose').addEventListener('click', closeLb);
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') go(i - 1);
+      else if (e.key === 'ArrowRight') go(i + 1);
+      else if (e.key === 'Escape') closeLb();
+    });
+
+    var sx = null, stage = document.getElementById('albumViewer');
+    stage.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener('touchend', function (e) {
+      if (sx === null) return;
+      var dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 40) go(dx < 0 ? i + 1 : i - 1);
+      sx = null;
+    });
+
+    go(0);
+  }
+
   /* -------- 1. Navigation mobile -------- */
   function initNav() {
     const nav = document.querySelector('.nav');
@@ -371,6 +440,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     initGate();
     initPreloader();
+    initCatalogue();
     initPageTransitions();
     initScrollProgress();
     initBackToTop();
