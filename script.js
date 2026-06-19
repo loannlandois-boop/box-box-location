@@ -108,22 +108,12 @@
     var gate = document.getElementById('gate');
     if (!gate) return;
 
-    var seen = false;
-    try { seen = !!sessionStorage.getItem('bb_entered'); } catch (e) {}
-
-    if (seen) {
-      gate.classList.add('is-removed');
-      return;
-    }
-
+    // La vidéo d'entrée joue à CHAQUE arrivée sur l'accueil.
     document.body.classList.add('is-loading');
     var btn = document.getElementById('gateEnter');
 
     function open() {
-      try {
-        sessionStorage.setItem('bb_entered', '1');
-        sessionStorage.setItem('bb_seen', '1'); // évite le préloader sur les pages suivantes
-      } catch (e) {}
+      try { sessionStorage.setItem('bb_seen', '1'); } catch (e) {} // évite le préloader sur les pages suivantes
       gate.classList.add('is-open');
       document.body.classList.remove('is-loading');
       setTimeout(function () { gate.classList.add('is-removed'); }, 1500);
