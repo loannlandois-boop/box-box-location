@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club — Espace membres | SF CLUB PARIS</title>
+  <meta name="description" content="Espace membres SF CLUB PARIS. Connectez-vous pour accéder à l'agenda des événements, à la collection privée et aux contenus réservés aux membres du Club.">
+  <meta property="og:title" content="Club — Espace membres | SF CLUB PARIS">
+  <meta property="og:description" content="Accédez à votre espace privé SF CLUB PARIS.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='14' font-weight='700' fill='%23FFFFFF' text-anchor='middle'%3ESF%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="logo">SF&nbsp;CLUB<span>.PARIS</span></a>
+      <nav>
+        <ul class="nav__menu">
+          <li><a href="location.html">Location</a></li>
+          <li><a href="evenements.html">Événements</a></li>
+          <li><a href="financement.html">Financement</a></li>
+          <li><a href="achat-revente.html">Achat &amp; Revente</a></li>
+          <li><a href="club.html">Club</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="location.html" class="btn btn--solid nav__cta">Réserver</a>
+      <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="club-login">
+      <div class="container" style="max-width:440px">
+        <div class="center" style="margin-bottom:30px">
+          <span class="eyebrow reveal">Espace membres</span>
+          <h1 class="reveal" data-delay="1" style="font-size:clamp(2.6rem,8vw,3.6rem)">Club</h1>
+          <p class="muted reveal" data-delay="2">Connectez-vous pour accéder à votre espace privé.</p>
+        </div>
+
+        <form class="form-card reveal" data-delay="2" id="clubLogin">
+          <div class="field">
+            <label for="identifiant">Identifiant</label>
+            <input type="text" id="identifiant" autocomplete="username" required>
+          </div>
+          <div class="field">
+            <label for="motdepasse">Mot de passe</label>
+            <input type="password" id="motdepasse" autocomplete="current-password" required>
+          </div>
+          <a href="#" class="muted club-forgot">Mot de passe oublié ?</a>
+          <button type="submit" class="btn btn--solid btn--lg btn--block">Se connecter</button>
+        </form>
+
+        <div class="center" style="margin-top:30px">
+          <hr class="gold-line" style="margin-bottom:26px">
+          <p class="muted" style="font-size:.85rem;margin-bottom:1rem">Pas encore membre ?</p>
+          <a href="contact.html" class="btn btn--lg btn--block">Rejoindre le club</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border-top:0;justify-content:center">
+        <span>© 2025 SF CLUB PARIS. Tous droits réservés.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

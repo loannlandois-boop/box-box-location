@@ -270,6 +270,37 @@
     go(0);
   }
 
+  /* -------- 0i. Connexion Club -------- */
+  function initClubLogin() {
+    var form = document.getElementById('clubLogin');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      try { sessionStorage.setItem('bb_member', '1'); } catch (e) {}
+      window.location.href = 'club-espace.html';
+    });
+  }
+
+  /* -------- 0j. Galerie membres (lightbox) -------- */
+  function initGallery() {
+    var g = document.getElementById('gallery');
+    if (!g) return;
+    var lb = document.getElementById('galLightbox');
+    var lbImg = document.getElementById('galLightboxImg');
+    var close = document.getElementById('galClose');
+    if (!lb) return;
+    g.querySelectorAll('img').forEach(function (im) {
+      im.addEventListener('click', function () {
+        lbImg.src = im.src;
+        lb.classList.add('is-open');
+      });
+    });
+    function hide() { lb.classList.remove('is-open'); }
+    lb.addEventListener('click', function (e) { if (e.target !== lbImg) hide(); });
+    if (close) close.addEventListener('click', hide);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+  }
+
   /* -------- 1. Navigation mobile -------- */
   function initNav() {
     const nav = document.querySelector('.nav');
@@ -431,6 +462,8 @@
     initGate();
     initPreloader();
     initCatalogue();
+    initClubLogin();
+    initGallery();
     initPageTransitions();
     initScrollProgress();
     initBackToTop();

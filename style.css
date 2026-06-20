@@ -1666,3 +1666,20 @@ body::after {
 
 /* Boutons des héros compacts centrés */
 .hero--compact .btn-row { justify-content: center; }
+
+/* ============================================================
+   ESPACE CLUB — connexion & galerie membres
+   ============================================================ */
+.club-login { min-height: calc(100vh - var(--nav-h)); display: flex; align-items: center; }
+.club-login .form-card { width: 100%; }
+.club-forgot { display: block; text-align: right; font-size: .8rem; margin: -6px 0 18px; }
+.club-forgot:hover { color: #fff; }
+
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.gallery figure { margin: 0; overflow: hidden; border: 1px solid var(--border); cursor: zoom-in; }
+.gallery img {
+  width: 100%; height: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block;
+  opacity: .9; transition: transform .6s var(--ease), opacity .4s var(--ease);
+}
+.gallery figure:hover img { transform: scale(1.06); opacity: 1; }
+@media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
