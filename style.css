@@ -1663,3 +1663,6 @@ body::after {
   .album__img { max-height: 70vh; }
   .album__thumb { width: 52px; height: 74px; }
 }
+
+/* Boutons des héros compacts centrés */
+.hero--compact .btn-row { justify-content: center; }
