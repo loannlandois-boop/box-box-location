@@ -34,11 +34,10 @@
           <li><a href="evenements.html">Événements</a></li>
           <li><a href="financement.html">Financement</a></li>
           <li><a href="achat-revente.html">Achat &amp; Revente</a></li>
-          <li><a href="club.html">Club</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-      <a href="location.html" class="btn btn--solid nav__cta">Réserver</a>
+      <div class="nav__actions"><a href="location.html" class="btn btn--solid nav__cta">Réserver</a><a href="club.html" class="btn btn--solid nav__cta nav__cta--club">Club</a></div>
       <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
     </div>
   </header>
@@ -58,7 +57,14 @@
     <!-- ===== FILTRES ===== -->
     <section class="section--tight">
       <div class="container">
-        <div class="filters reveal" data-filter-group="cars" style="border-top:0">
+        <div class="filters reveal" data-filter-group="cars" style="border-top:0;flex-direction:column;gap:24px">
+          <div class="filter-group" style="width:100%">
+            <span class="filter-group__label">Rechercher un modèle</span>
+            <div class="input-icon" style="max-width:440px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              <input type="text" id="carSearch" placeholder="Ferrari, Range Rover, Mini…" autocomplete="off">
+            </div>
+          </div>
           <div class="filter-group" style="width:100%">
             <span class="filter-group__label">Filtrer par catégorie</span>
             <div class="filter-chips">

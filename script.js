@@ -301,6 +301,49 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
   }
 
+  /* -------- 0k. Recherche dans la collection -------- */
+  function initCarSearch() {
+    var input = document.getElementById('carSearch');
+    var wrap = document.querySelector('[data-filter-target="cars"]');
+    if (!wrap) return;
+    var group = document.querySelector('[data-filter-group="cars"]');
+    var items = wrap.querySelectorAll('[data-cat]');
+    var countEl = document.querySelector('[data-filter-count="cars"]');
+
+    function activeCat() {
+      var a = group && group.querySelector('.chip.is-active');
+      return a ? a.getAttribute('data-value') : 'all';
+    }
+    function apply() {
+      var q = (input && input.value || '').trim().toLowerCase();
+      var cat = activeCat();
+      var n = 0;
+      items.forEach(function (it) {
+        var cats = (it.getAttribute('data-cat') || '').split('|');
+        var okCat = cat === 'all' || cats.indexOf(cat) !== -1;
+        var h3 = it.querySelector('h3');
+        var name = (h3 ? h3.textContent : '').toLowerCase();
+        var okQ = !q || name.indexOf(q) !== -1;
+        var show = okCat && okQ;
+        it.classList.toggle('is-hidden', !show);
+        if (show) n++;
+      });
+      if (countEl) countEl.textContent = n;
+    }
+
+    if (input) input.addEventListener('input', apply);
+    // Re-appliquer après un clic sur une catégorie (laisse initFilters poser .is-active)
+    if (group) group.querySelectorAll('.chip').forEach(function (ch) {
+      ch.addEventListener('click', function () { setTimeout(apply, 0); });
+    });
+    // Pré-remplissage depuis l'URL (?q=...) venant de la page Location
+    try {
+      var q0 = new URLSearchParams(location.search).get('q');
+      if (q0 && input) input.value = q0;
+    } catch (e) {}
+    apply();
+  }
+
   /* -------- 1. Navigation mobile -------- */
   function initNav() {
     const nav = document.querySelector('.nav');
@@ -464,6 +507,7 @@
     initCatalogue();
     initClubLogin();
     initGallery();
+    initCarSearch();
     initPageTransitions();
     initScrollProgress();
     initBackToTop();
