@@ -1683,3 +1683,40 @@ body::after {
 }
 .gallery figure:hover img { transform: scale(1.06); opacity: 1; }
 @media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+
+/* ============================================================
+   RESPONSIVE MOBILE — ajustement des dimensions
+   ============================================================ */
+@media (max-width: 600px) {
+  html, body { overflow-x: hidden; }
+  .container { padding: 0 18px; }
+
+  h1 { font-size: clamp(2.1rem, 11vw, 3rem); }
+  .hero h1 { font-size: clamp(2.3rem, 12vw, 3.4rem); line-height: 1.02; }
+  h2 { font-size: clamp(1.6rem, 7.5vw, 2.3rem); }
+  .hero__sub { font-size: 1rem; }
+
+  .gate__logo, .preloader__logo { font-size: clamp(2rem, 13vw, 3rem); }
+  .gate__content { padding: 0 22px; }
+
+  /* Boutons empilés, pleine largeur */
+  .btn-row { flex-direction: column; align-items: stretch; width: 100%; }
+  .btn-row .btn { width: 100%; }
+  .btn--lg { padding: 1.05em 1.6em; font-size: .72rem; }
+
+  /* Nav plus compacte */
+  .logo { font-size: 1.05rem; letter-spacing: .1em; }
+  .nav__inner { gap: 10px; }
+
+  /* Éviter les débordements de longs noms */
+  .car h3, .collection__title, .renter h3, .gate__logo { overflow-wrap: anywhere; }
+
+  /* Sections un peu plus serrées */
+  .section { padding: clamp(46px, 12vw, 72px) 0; }
+  .stat__num { font-size: clamp(2rem, 9vw, 2.6rem); }
+}
+
+@media (max-width: 400px) {
+  .hero h1 { font-size: 2.05rem; }
+  h1 { font-size: 1.9rem; }
+}
