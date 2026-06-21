@@ -1485,9 +1485,9 @@ body::after {
 }
 .hero::before { background: radial-gradient(circle, rgba(255,255,255,.05), transparent 60%); }
 
-/* Vidéo d'entrée — en couleur pour que la Ferrari ressorte bien */
-.gate__media { filter: none; }
-.gate.is-open .gate__media { filter: brightness(.35); }
+/* Vidéo d'entrée — noir & blanc (luminosité/contraste relevés pour rester visible) */
+.gate__media { filter: grayscale(1) brightness(1.12) contrast(1.08); }
+.gate.is-open .gate__media { filter: grayscale(1) brightness(.4); }
 
 /* Logo : « .PARIS » en gris (comme le logo officiel) */
 .logo span,
