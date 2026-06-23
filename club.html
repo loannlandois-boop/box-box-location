@@ -16,12 +16,18 @@
 </head>
 <body>
 
-  <!-- Préloader -->
-  <div class="preloader" id="preloader" aria-hidden="true">
-    <div class="preloader__inner">
-      <div class="preloader__logo">SF&nbsp;CLUB<span>.PARIS</span></div>
-      <div class="preloader__line"><span></span></div>
-      <div class="preloader__tag">Club Automobile Privé</div>
+  <!-- ===== PORTE D'ENTRÉE — survol des supercars ===== -->
+  <div class="gate" id="gate">
+    <video class="gate__media" id="gateVideo" autoplay muted playsinline preload="auto" poster="assets/club-fleet.jpg">
+      <source src="assets/club-flyover.mp4" type="video/mp4">
+    </video>
+    <div class="gate__scrim"></div>
+    <div class="gate__content">
+      <span class="gate__eyebrow">Club automobile privé · Paris</span>
+      <div class="gate__logo">SF&nbsp;CLUB<span>.PARIS</span></div>
+      <p class="gate__tag">Survolez la collection. Entrez dans le Club.</p>
+      <button class="btn btn--solid btn--lg gate__btn" id="gateEnter">Entrer &nbsp;→</button>
+      <span class="gate__hint">Cliquez pour entrer</span>
     </div>
   </div>
 
